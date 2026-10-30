@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Alex Morgan — designer and developer in Portland, Oregon. Clean, accessible interfaces for the web." />
+  <meta name="description" content="Fuad Hasan is an SEO and GEO specialist helping businesses generate real leads and revenue from Google and AI search through SEO, AEO, and GEO." />
   <meta name="theme-color" content="#0C110F" />
-  <title>Alex Morgan — Designer &amp; Developer</title>
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Fuad Hasan — SEO &amp; GEO Specialist" />
+  <meta property="og:description" content="Real leads and revenue from Google and AI search. SEO, AEO, GEO, and local search strategy for brands in the US, UK, Australia, and Canada." />
+  <meta property="og:site_name" content="Fuad Hasan" />
+  <title>Fuad Hasan — SEO &amp; GEO Specialist</title>
   <style>
     /* ============ Tokens ============ */
     :root {
@@ -387,7 +391,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 340px;
+      gap: 28px;
+      min-height: 380px;
       padding: 28px;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
@@ -419,7 +424,7 @@
     .identity-list {
       position: relative;
       display: grid;
-      gap: 18px;
+      gap: 16px;
       margin: 0;
     }
 
@@ -448,7 +453,7 @@
       gap: clamp(36px, 6vw, 72px);
     }
 
-    .about-intro {
+    .sticky-intro {
       position: sticky;
       top: 112px;
     }
@@ -499,19 +504,82 @@
       color: var(--text-dim);
     }
 
-    .skills-line {
-      max-width: 60ch;
-      margin-top: 36px;
-      padding-top: 24px;
+    /* ============ Expertise ============ */
+    .expertise {
       border-top: 1px solid var(--line);
-      font-size: 0.93rem;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      align-items: start;
+      gap: clamp(36px, 6vw, 72px);
+    }
+
+    .expertise-list {
+      display: grid;
+      list-style: none;
+      margin: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .expertise-item {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: 4px 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .expertise-num {
+      padding-top: 0.4em;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
       color: var(--text-dim);
     }
 
-    .skills-line span {
+    .expertise-item h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.15rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
       color: var(--text);
-      font-weight: 600;
-      margin-right: 6px;
+    }
+
+    .expertise-item p {
+      grid-column: 2;
+      max-width: 46ch;
+      font-size: 0.93rem;
+      line-height: 1.65;
+      color: var(--text-dim);
+    }
+
+    /* ============ Why ============ */
+    .why {
+      border-top: 1px solid var(--line);
+    }
+
+    .why-inner {
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    .why-list {
+      display: grid;
+      list-style: none;
+      margin-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .why-list li {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
     }
 
     /* ============ Footer ============ */
@@ -529,7 +597,7 @@
       padding-bottom: 3px;
       border-bottom: 1px solid var(--line-strong);
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
       letter-spacing: -0.02em;
       color: var(--text);
       touch-action: manipulation;
@@ -543,14 +611,14 @@
 
     .footer-top {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       gap: 48px;
       padding-bottom: 40px;
       border-bottom: 1px solid var(--line);
     }
 
     .footer-brand p {
-      max-width: 34ch;
+      max-width: 36ch;
       margin-top: 14px;
       font-size: 0.9rem;
       color: var(--text-dim);
@@ -558,7 +626,7 @@
 
     .footer-cols {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 32px;
     }
 
@@ -655,18 +723,19 @@
         gap: 18px 24px;
       }
 
-      .identity-list > div:last-child {
-        grid-column: 1 / -1;
-      }
-
-      .about-grid {
+      .about-grid,
+      .expertise-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 36px;
       }
 
-      .about-intro {
+      .sticky-intro {
         position: static;
         top: auto;
+      }
+
+      .about-lead {
+        max-width: 46ch;
       }
 
       .footer-top {
@@ -739,6 +808,11 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
+      .expertise-item {
+        grid-template-columns: 2.25rem minmax(0, 1fr);
+        gap: 2px 10px;
+      }
+
       .footer-cols {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -771,11 +845,12 @@
   <header class="site-header" id="top">
     <div class="container">
       <nav class="nav" aria-label="Main">
-        <a href="#top" class="wordmark">Alex Morgan</a>
+        <a href="#top" class="wordmark">Fuad Hasan</a>
 
         <ul class="nav-links" id="nav-links">
           <li><a href="#home" class="active" aria-current="page">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
 
@@ -805,40 +880,45 @@
           <div class="hero-content">
             <p class="availability">
               <span class="dot" aria-hidden="true"></span>
-              Available for select projects
+              Available for new projects
             </p>
 
-            <h1>Alex<br />Morgan</h1>
+            <h1>Fuad<br />Hasan</h1>
 
-            <p class="hero-role">Designer &amp; developer</p>
+            <p class="hero-role">SEO &amp; GEO Specialist</p>
 
             <p class="hero-text">
-              Hi — I’m Alex. I design interfaces that feel obvious in hindsight,
-              then build them in clean, accessible HTML, CSS, and JavaScript.
-              Based in Portland, working with teams anywhere.
+              I help businesses generate real leads and drive revenue from Google
+              and AI search — through SEO, AEO, and GEO. Based in Bangladesh,
+              working with clients across the United States, the UK, Australia,
+              and Canada.
             </p>
 
             <div class="hero-actions">
-              <a href="#about" class="btn btn-primary">Read about me</a>
-              <a href="mailto:hello@alexmorgan.dev" class="btn btn-quiet">Email me</a>
+              <a href="#contact" class="btn btn-primary">Work with me</a>
+              <a href="#expertise" class="btn btn-quiet">See my expertise</a>
             </div>
           </div>
 
           <aside class="identity" aria-label="At a glance">
-            <div class="identity-mark" aria-hidden="true">AM</div>
+            <div class="identity-mark" aria-hidden="true">FH</div>
 
             <dl class="identity-list">
               <div>
                 <dt>Based in</dt>
-                <dd>Portland, Oregon</dd>
+                <dd>Bangladesh</dd>
+              </div>
+              <div>
+                <dt>Clients in</dt>
+                <dd>US, UK, Australia, Canada</dd>
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Product design, front-end</dd>
+                <dd>AI SEO, GEO, AEO, Local SEO</dd>
               </div>
               <div>
-                <dt>Status</dt>
-                <dd>Open to freelance and full-time</dd>
+                <dt>Experience</dt>
+                <dd>3 years</dd>
               </div>
             </dl>
           </aside>
@@ -850,60 +930,154 @@
     <section class="about" id="about">
       <div class="container">
         <div class="about-grid">
-          <div class="about-intro">
+          <div class="sticky-intro">
             <h2 class="section-title">
-              The best interface is the one you never notice.
+              Ranking is a metric. Revenue is the point.
             </h2>
             <p class="about-lead">
-              I design and build digital products for people who care how things
-              feel, not just how they look.
+              Most SEO work stops at traffic. Mine starts with the question your
+              buyer is actually asking — and ends with the lead it produces.
             </p>
           </div>
 
           <div class="about-body">
             <p>
-              I’m a product-minded designer and developer with
-              <strong>6 years of experience</strong> turning complex ideas into
-              simple, usable interfaces. I care about typography, spacing, and the
-              quiet interactions that guide people through a product.
+              I’m an SEO and GEO specialist with
+              <strong>3 years of experience</strong> helping businesses become the
+              answer — on Google, inside AI Overviews, and in tools like ChatGPT
+              and Perplexity. My work covers the full path: research, technical
+              foundations, content, local visibility, and links.
             </p>
             <p>
-              My work sits between design and engineering. I prototype in code,
-              test with real users, and ship accessible experiences that hold up
-              across devices. Away from the screen you’ll find me sketching,
-              hiking, or over-engineering my coffee.
+              Based in Bangladesh, I work with clients across the United States,
+              the UK, Australia, and Canada, usually as the person who owns search
+              end to end. I work with brands that value clarity, strategy, and
+              execution — and I keep every engagement tied to a business outcome
+              rather than a vanity metric.
             </p>
 
             <dl class="principles">
               <div class="principle">
-                <dt>Start with the user</dt>
+                <dt>Search is bigger than Google</dt>
                 <dd>
-                  Every decision begins with the person using the product, not the
-                  tool building it.
+                  Your buyers now ask AI assistants for recommendations. I optimize
+                  for the answer engines as deliberately as I do for the results
+                  page.
                 </dd>
               </div>
               <div class="principle">
-                <dt>Build for real constraints</dt>
+                <dt>Strategy before tactics</dt>
                 <dd>
-                  Semantic markup, honest performance budgets, and no effects that
-                  fight the content.
+                  Keyword research, entity mapping, and topical clusters decide what
+                  gets built. Tactics without a model are just busywork.
                 </dd>
               </div>
               <div class="principle">
-                <dt>Finish the edges</dt>
+                <dt>Measured against outcomes</dt>
                 <dd>
-                  Empty states, error copy, and loading moments get the same care
-                  as the hero.
+                  Rankings and sessions are diagnostics. Qualified leads and revenue
+                  are the scoreboard I report on.
                 </dd>
               </div>
             </dl>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <p class="skills-line">
-              <span>Tools</span>
-              Figma, design systems, accessibility, HTML and CSS, JavaScript,
-              motion, and performance.
+    <!-- ============ Expertise ============ -->
+    <section class="expertise" id="expertise">
+      <div class="container">
+        <div class="expertise-grid">
+          <div class="sticky-intro">
+            <h2 class="section-title">Where I can help</h2>
+            <p class="about-lead">
+              Seven areas of work, all pointed at one outcome: being the business
+              your buyer finds first.
             </p>
           </div>
+
+          <ol class="expertise-list">
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">01</span>
+              <h3>SEO strategy</h3>
+              <p>
+                Keyword research, entity mapping, and topical clusters turned into
+                a roadmap that says what to do first, and why.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">02</span>
+              <h3>GEO &amp; AEO</h3>
+              <p>
+                Structuring content and brand signals so answer engines and AI
+                assistants cite you instead of a competitor.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">03</span>
+              <h3>Local SEO &amp; Google Business Profile</h3>
+              <p>
+                Profile optimization and local signals that turn nearby searches
+                into calls, directions, and enquiries.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">04</span>
+              <h3>Content writing &amp; optimization</h3>
+              <p>
+                Pages that answer the query completely, in language a person would
+                actually read.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">05</span>
+              <h3>Technical SEO</h3>
+              <p>
+                Indexation, Core Web Vitals, and structured data — the foundation
+                everything else stands on.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">06</span>
+              <h3>Link building &amp; outreach</h3>
+              <p>
+                Earning links from sites that carry weight, through outreach that
+                doesn’t damage your brand.
+              </p>
+            </li>
+            <li class="expertise-item">
+              <span class="expertise-num" aria-hidden="true">07</span>
+              <h3>Analytics &amp; measurement</h3>
+              <p>
+                Reporting that connects rankings and sessions to leads and revenue,
+                not just to a dashboard.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Why ============ -->
+    <section class="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-inner">
+          <h2 class="section-title" id="why-title">Why work with me</h2>
+
+          <ul class="why-list">
+            <li>
+              I generate real leads — the kind that appear in your pipeline, not
+              just in a traffic graph.
+            </li>
+            <li>I’ve ranked competitive businesses on Google and inside LLMs.</li>
+            <li>
+              I work with brands that value clarity, strategy, and execution.
+            </li>
+            <li>
+              I focus on measurable growth through high-impact work, not busywork.
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -914,12 +1088,12 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="mailto:hello@alexmorgan.dev" class="footer-email">
-            hello@alexmorgan.dev
+          <a href="mailto:furathasan369@gmail.com" class="footer-email">
+            furathasan369@gmail.com
           </a>
           <p>
-            Designer and developer in Portland, Oregon. Open to freelance and
-            full-time work.
+            SEO and GEO specialist based in Bangladesh, working with clients
+            across the US, UK, Australia, and Canada.
           </p>
         </div>
 
@@ -929,6 +1103,7 @@
             <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
+              <li><a href="#expertise">Expertise</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -936,30 +1111,30 @@
           <div class="footer-col">
             <h3>Connect</h3>
             <ul>
-              <li><a href="mailto:hello@alexmorgan.dev">Email</a></li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a
+                  href="https://www.linkedin.com/in/itzfuadhasan/"
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                >LinkedIn</a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a
+                  href="https://www.facebook.com/itzfuadhasan"
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                >Facebook</a>
               </li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h3>More</h3>
-            <ul>
               <li>
-                <a href="mailto:hello@alexmorgan.dev?subject=Resume%20request">Resume</a>
+                <a href="mailto:furathasan369@gmail.com">Email</a>
               </li>
-              <li><a href="#top">Back to top</a></li>
             </ul>
           </div>
         </nav>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Alex Morgan</p>
+        <p>&copy; <span id="year">2026</span> Fuad Hasan</p>
         <a href="#top" class="back-to-top">
           Back to top
           <span aria-hidden="true">↑</span>
@@ -967,6 +1142,35 @@
       </div>
     </div>
   </footer>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fuad Hasan",
+      "jobTitle": "SEO & GEO Specialist",
+      "email": "mailto:furathasan369@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BD"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/itzfuadhasan/",
+        "https://www.facebook.com/itzfuadhasan"
+      ],
+      "knowsAbout": [
+        "Search Engine Optimization",
+        "Generative Engine Optimization",
+        "Answer Engine Optimization",
+        "Local SEO",
+        "Google Business Profile optimization",
+        "Technical SEO",
+        "Content optimization",
+        "Link building",
+        "SEO analytics"
+      ]
+    }
+  </script>
 
   <script>
     (function () {
