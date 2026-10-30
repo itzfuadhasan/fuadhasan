@@ -412,19 +412,61 @@
       );
     }
 
-    .identity-mark {
+    .identity-media {
       position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: radial-gradient(
+        80% 70% at 70% 10%,
+        rgba(216, 232, 190, 0.16),
+        rgba(21, 28, 24, 0.9)
+      );
+    }
+
+    .identity-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%;
+      filter: sepia(0.16) brightness(0.975) saturate(1.05);
+    }
+
+    /* Warm the studio white and soften the hard edge into the card */
+    .identity-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        120% 120% at 50% 35%,
+        transparent 45%,
+        rgba(12, 17, 15, 0.22) 100%
+      );
+    }
+
+    .identity-monogram {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
       font-family: var(--font-display);
-      font-size: clamp(4rem, 7vw, 5.25rem);
-      line-height: 0.8;
+      font-size: clamp(3.5rem, 6vw, 4.75rem);
+      line-height: 1;
       letter-spacing: -0.05em;
       color: var(--accent);
+    }
+
+    .identity-media.is-missing .identity-monogram {
+      display: grid;
     }
 
     .identity-list {
       position: relative;
       display: grid;
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 20px;
       margin: 0;
     }
 
@@ -709,18 +751,18 @@
       }
 
       .identity {
+        display: grid;
+        grid-template-columns: 168px minmax(0, 1fr);
+        align-items: start;
+        gap: 24px;
         min-height: 0;
-        max-width: 520px;
+        max-width: 560px;
         padding: 24px;
       }
 
-      .identity-mark {
-        margin-bottom: 28px;
-      }
-
       .identity-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 24px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
       }
 
       .about-grid,
@@ -795,13 +837,27 @@
       }
     }
 
+    @media (max-width: 560px) {
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 480px) {
       .hero h1 {
         font-size: clamp(3rem, 17vw, 3.8rem);
       }
 
-      .hero-actions .btn {
+      .identity {
+        display: flex;
+        flex-direction: column;
+        max-width: none;
+      }
+
+      .identity-media {
         width: 100%;
+        max-width: 288px;
+        margin-inline: auto;
       }
 
       .identity-list {
@@ -896,12 +952,27 @@
 
             <div class="hero-actions">
               <a href="#contact" class="btn btn-primary">Work with me</a>
+              <a
+                href="assets/fuad-hasan-cv.pdf"
+                class="btn btn-quiet"
+                download="Fuad-Hasan-CV.pdf"
+              >Download CV</a>
               <a href="#expertise" class="btn btn-quiet">See my expertise</a>
             </div>
           </div>
 
           <aside class="identity" aria-label="At a glance">
-            <div class="identity-mark" aria-hidden="true">FH</div>
+            <div class="identity-media">
+              <img
+                class="identity-photo"
+                src="assets/fuad-hasan.png"
+                alt="Portrait of Fuad Hasan"
+                width="288"
+                height="288"
+                decoding="async"
+              />
+              <div class="identity-monogram" aria-hidden="true">FH</div>
+            </div>
 
             <dl class="identity-list">
               <div>
@@ -1128,6 +1199,10 @@
               <li>
                 <a href="mailto:furathasan369@gmail.com">Email</a>
               </li>
+              <li>
+                <a href="assets/fuad-hasan-cv.pdf" download="Fuad-Hasan-CV.pdf"
+                >Resume (PDF)</a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -1180,6 +1255,23 @@
       var toggle = document.getElementById("nav-toggle");
       var navLinks = document.getElementById("nav-links");
       var yearEl = document.getElementById("year");
+      var photo = document.querySelector(".identity-photo");
+      var media = document.querySelector(".identity-media");
+
+      if (photo && media) {
+        var showMonogram = function () {
+          if (photo.parentNode) {
+            photo.remove();
+          }
+          media.classList.add("is-missing");
+        };
+
+        photo.addEventListener("error", showMonogram);
+
+        if (photo.complete && photo.naturalWidth === 0) {
+          showMonogram();
+        }
+      }
 
       if (yearEl) {
         yearEl.textContent = new Intl.DateTimeFormat("en", {
